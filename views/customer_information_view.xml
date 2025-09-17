@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="customer_information_form_view" model="ir.ui.view">
+        <field name="name">Customer Information Form View</field>
+        <field name="model">customer.information</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button string="Confrim" name="action_confirm" type="object" class="oe_highlight" attrs="{'invisible': [('status', '!=', 'draft')]}" />
+                    <button string="Confrim" name="action_checked" type="object" class="oe_highlight" attrs="{'invisible': [('status', '!=', 'prepared')]}" />
+                    <button string="Confrim" name="action_approved" type="object" class="oe_highlight" attrs="{'invisible': [('status', '!=', 'checked')]}" />
+
+                    <field name="status" widget="statusbar" statusbar_visible="draft, prepared, checked, approved"/>
+                </header>
+                <sheet>
+                    <h2>व्यक्तिगत विवरण</h2><br/>
+                    <group>
+                        <group>
+                            <group>
+                                <field name="first_name" />
+                            </group>
+                            <group>
+                                <field name="middle_name" />
+                            </group>
+                        </group>
+                        <group>
+                            <field name="last_name" />
+                        </group>
+                        <group>
+                            <group>
+                                <field name="district" />
+                            </group>
+                            <group>
+                                <field name="local_level_type" />
+                            </group>
+                        </group>
+                        <group>
+                            <field name="local_level_type_name" string="" />
+                        </group>
+                        <group>
+                            <group>
+                                <field name="ward_number" />
+                            </group>
+                            <group>
+                                <field name="state" />
+                            </group>
+                        </group>
+                        <group>
+                            <field name="nationality" />
+                        </group>
+                        <group>
+                            <group>
+                                <field name="national_id" />
+                            </group>
+                            <group>
+                            <field name="citizenship" />
+                            </group>
+                        </group>
+                        <group>
+                            <field name="gender" />
+                        </group>
+                    </group>
+                    <h2>हाल संचालनमा रहेका व्यवसायको विवरण</h2><br/>
+                    <group>
+                        <group>
+                            <group>
+                                <field name="organization_name" />
+                            </group>
+                            <group>
+                                <field name="selling_item"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="type_of_business"/>
+                        </group>
+                        <group>
+                            <field name="trade_location"/>
+                        </group>
+                        <seperator/>
+                        <group>
+                            <group>
+                                <field name="phone_number" />
+                            </group>
+                            <group>
+                                <field name="fax"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="mobile_number"/>
+                            </group>
+                            <group>
+                                <field name="email"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="company_owner_name"/>
+                            <field name="manager_name"/>
+                        </group>
+                        <seperator/>
+                        <group>
+                            <group>
+                                <field name="office_registered"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="factory"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="registered_number"/>
+                            </group>
+                            <group>
+                                <field name="registered_date"/>
+                            </group>
+                        </group>
+                        <seperator/>
+                        <group>
+                            <group>
+                                <field name="total_employee"/>
+                            </group>
+                            <group>
+                                <field name="last_renewal_date"/>
+                            </group>
+                        </group>                    
+                    </group>
+                    <h2 attrs="{'invisible':[('status','=','draft')]}">जिल्ला समन्वय समितिले भर्ने</h2><br/>
+                    <group attrs="{'invisible':[('status','=','draft')]}">
+                        <group>
+                            <field name="form_number"/>
+                        </group>
+                        <group>
+                            <field name="membership_number"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="customer_information_tree_view" model="ir.ui.view">
+        <field name="name">Customer Information Tree View</field>
+        <field name="model">customer.information</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="first_name" />
+                <field name="middle_name" />
+                <field name="last_name" />  
+                <field name="district" />
+                <field name="status" />
+            </tree>    
+        </field>
+    </record>
+    <record id="action_customer_information" model="ir.actions.act_window">
+        <field name="name">आवेदकको व्यक्तिगत विवरण फारम</field>
+        <field name="res_model">customer.information</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="customer_information_tree_view"></field>
+    </record>
+    <menuitem id="menu_customer_information_form" name="आवेदकको व्यक्तिगत विवरण फारम" sequence="10" parent="menu_root" action="action_customer_information"/>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_custom_role" model="ir.module.category">
+        <field name="name">Custom Role</field>
+        <field name="description">User access level to process claims through odoo</field>
+        <field name="sequence">10</field>
+    </record>
+   <!--Internal User + any specific rights you assign to group_sean_user.-->
+    <record id="group_sean_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_custom_role"></field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"></field><!--Internal odoo user access-->
+        <field name="users" eval="[(4, ref('base.user_root'))]"></field><!--Adds the Administrator (base.user_root) to this group automatically.-->
+    </record>
+    <!--User + extra rights you assign to group_sean_manager.-->
+    <record id="group_sean_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_custom_role"></field>
+        <field name="implied_ids" eval="[(4, ref('group_sean_user'))]"></field>
+    </record></odoo>
