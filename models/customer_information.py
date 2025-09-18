@@ -31,8 +31,8 @@ class CustomerInformation(models.Model):
     national_id = fields.Char(string="राष्ट्रिय परिचय पत्र नं: ")
     citizenship = fields.Char(string="नागरिकता नं: ")
     gender = fields.Selection([
-        ('male', 'Male'),
-        ('female', 'Female')
+        ('Male', 'Male'),
+        ('Female', 'Female')
     ], string="लिङ्ग: ", default="male")
     organization_name = fields.Char(string="फर्म/संस्थाको नाम:")
     selling_item = fields.Selection([
@@ -73,6 +73,8 @@ class CustomerInformation(models.Model):
         ('checked', 'Checked'),
         ('approved', 'Approved')
     ], string="State", default="draft")
+
+    company_id = fields.Many2one('res.company', string="Company Id")
 
     def action_confirm(self):
         _logger.info("Action Confirm Button Clicked")

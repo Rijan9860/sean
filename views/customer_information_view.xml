@@ -9,7 +9,6 @@
                     <button string="Confrim" name="action_confirm" type="object" class="oe_highlight" attrs="{'invisible': [('status', '!=', 'draft')]}" />
                     <button string="Confrim" name="action_checked" type="object" class="oe_highlight" attrs="{'invisible': [('status', '!=', 'prepared')]}" />
                     <button string="Confrim" name="action_approved" type="object" class="oe_highlight" attrs="{'invisible': [('status', '!=', 'checked')]}" />
-
                     <field name="status" widget="statusbar" statusbar_visible="draft, prepared, checked, approved"/>
                 </header>
                 <sheet>

@@ -1,5 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 sean.access_customer_information_user,access_customer_information_user,sean.model_customer_information,group_sean_user,1,1,1,1
-sean.access_customer_information_manager,access_customer_information_manager,sean.model_customer_information,group_sean_manager,1,0,0,
+sean.access_customer_information_manager,access_customer_information_manager,sean.model_customer_information,group_sean_manager,1,1,1,1,
 sean.access_application_letter_user,access_application_letter_user,sean.model_application_letter,group_sean_user,1,1,1,1
-sean.access_application_letter_manager,access_application_letter_manager,sean.model_application_letter,group_sean_manager,1,0,0,0
+sean.access_application_letter_manager,access_application_letter_manager,sean.model_application_letter,group_sean_manager,1,1,1,1

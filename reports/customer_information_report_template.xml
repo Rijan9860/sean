@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_customer_information">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div class="header">
+                                <h2>नेपाल बीउ व्यवसायी संघ</h2>
+                            </div>
+                            <h2 style="text-align:center;">आवेदकको व्यक्तिगत विवरण फारम</h2>
+                            <h3>व्यक्तिगत विवरण</h3>
+                            <table style="width:100%; border-collapse:collapse; font-size:14px; border:1px solid white;">
+                                <tr>
+                                    <td style="padding:5px; width:33%;">
+                                        पहिलो नाम: <t t-esc="doc['first_name']"/>
+                                    </td>
+                                    <td style="padding:5px; width:33%;">
+                                        विचको नाम: <t t-esc="doc['middle_name']"/>
+                                    </td>
+                                    <td style="padding:5px; width:33%;">
+                                        अन्तिमको नाम: <t t-esc="doc['last_name']"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:5px;">
+                                        जिल्ला: <t t-esc="doc['district']"/>
+                                    </td>
+                                    <td colspan="2" style="padding:5px;">
+                                        <t t-esc="doc['local_level_type']"/> : <t t-esc="doc['local_level_type_name']"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:5px;">
+                                        वडा नं.: <t t-esc="doc['ward_number']"/>
+                                    </td>
+                                    <td style="padding:5px;">
+                                        प्रदेश: <t t-esc="doc['state']"/>
+                                    </td>
+                                    <td style="padding:5px;">
+                                        राष्ट्रियता: <t t-esc="doc['nationality']"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:5px;">
+                                        राष्ट्रिय परिचय पत्र नं.: <t t-esc="doc['national_id']"/>
+                                    </td>
+                                    <td style="padding:5px;">
+                                        नागरिकता नं.: <t t-esc="doc['citizenship']"/>
+                                    </td>
+                                    <td style="padding:5px;">
+                                        लिंग: <t t-esc="doc['gender']"/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <h3>हाल संचालनमा रहेका व्यवसायको विवरण</h3>
+                            <table style="width:100%; border-collapse:collapse; font-size:14px; border:1px solid white;">
+                                <tr>
+                                    <td style="padding:5px;">
+                                        फर्म/संस्थाको नाम: <t t-esc="doc['organization_name']"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:5px;">
+                                        कारोबार गर्ने मुख्य सामान: <t t-esc="doc['selling_item']"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:5px;">
+                                        व्यवसायको किसिम: <t t-esc="doc['type_of_business']"/>
+                                    </td> 
+                                </tr>
+                                <tr>
+                                    <td style="padding:5px;">
+                                        कारोबारको स्थायी ठेगाना: <t t-esc="doc['trade_location']"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:5px;">
+                                        फोन नं: <t t-esc="doc['phone_number']"/>
+                                    </td>
+                                    <td style="padding:5px;">
+                                        फ्याक्स: <t t-esc="doc['fax']"/>
+                                    </td>
+                                    <td style="padding:5px;">
+                                        मो.नं: <t t-esc="doc['mobile_number']"/>
+                                    </td>
+                                    <td style="padding:5px;">
+                                        इमेल ठेगाना: <t t-esc="doc['email']"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:5px;">
+                                        फर्म धनी (कम्पनीको मालिक वा मुख्य  व्यक्ति को नाम): <t t-esc="doc['company_owner_name']"/>   
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:5px;">
+                                        प्रबन्धकको नाम: <t t-esc="doc['manager_name']"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:5px;">
+                                        नेपाल सरकारमा दर्ता भएको कार्यालय: <t t-esc="doc['office_registered']"/>
+                                    </td>
+                                    <td style="padding:5px;">
+                                       उद्योक: <t t-esc="doc['factory']"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:5px;">
+                                        दर्ता नं: <t t-esc="doc['registered_number']"/>
+                                    </td>
+                                    <td style="padding:5px;">
+                                        दर्ता मिति:: <t t-esc="doc['registered_date']"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:5px;">
+                                        शाखा/उपशाखा (भए सो को ठेगाना खुलाउने): <t t-esc="doc['branch_location']"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:5px;">
+                                        हाल कार्यरत कर्मचारी संख्या: <t t-esc="doc['total_employee']"/>
+                                    </td>
+                                    <td style="padding:5px;">
+                                        आन्तिम नविकरण भएको मिति: <t t-esc="doc['last_renewal_date']"/>
+                                    </td>
+                                </tr>
+                           </table>
+                        </div>
+                    </t>
+                </t>
+                <style>
+                    .header {
+                        text-align: center;
+                    }
+                </style>
+            </t>
+        </template>
+    </data>
+</odoo>

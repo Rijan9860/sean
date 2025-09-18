@@ -7,13 +7,15 @@
     'author': "SunyaEK Computing",
     'website': "",
     'category': '', 
-    'depends': [], 
+    'depends': ['mail'], 
     'data': [
         'security/custom_security.xml',
         'security/ir.model.access.csv',
         'views/menu.xml',
         'views/customer_information_view.xml',
-        'views/application_letter_view.xml'
+        'views/application_letter_view.xml',
+        'reports/action_book_report.xml',
+        'reports/customer_information_report_template.xml'
     ],
     'demo': [
     ],
